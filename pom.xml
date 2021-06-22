@@ -38,7 +38,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -61,6 +60,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-rest-hal-browser</artifactId>
+			<version>3.2.3.RELEASE</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -76,7 +80,7 @@
 				<configuration>
 					<imageName>gerenciamentopedidos</imageName>
 					<baseImage>openjdk:11</baseImage>
-					<entryPoint>["java", "-jar", "/app/${project.build.finalName}.jar"]</entryPoint>
+					<entryPoint>["java", "-Dserver.port=$PORT $JAVA_OPTS -jar", "/app/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/app</targetPath>
