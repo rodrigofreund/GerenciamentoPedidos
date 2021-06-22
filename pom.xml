@@ -65,6 +65,13 @@
 			<artifactId>spring-data-rest-hal-browser</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.22</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -80,7 +87,8 @@
 				<configuration>
 					<imageName>gerenciamentopedidos</imageName>
 					<baseImage>openjdk:11</baseImage>
-					<entryPoint>["java", "-Dserver.port=$PORT $JAVA_OPTS -jar", "/app/${project.build.finalName}.jar"]</entryPoint>
+					<entryPoint>["java", "-Dserver.port=$PORT $JAVA_OPTS -jar",
+						"/app/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/app</targetPath>
